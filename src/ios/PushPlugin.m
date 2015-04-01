@@ -265,7 +265,7 @@
 }
 -(void)successWithMessage:(NSString *)message
 {
-    NSLog(@"PushPlugin: successWithMessage");
+    NSLog(@"PushPlugin: successWithMessage %@", message);
     if (self.callbackId != nil)
     {
         NSLog(@"PushPlugin: successWithMessage: callbackId is nil");
