@@ -45,6 +45,7 @@
 
 - (void)register:(CDVInvokedUrlCommand*)command;
 {
+    NSLog(@"PushPlugin: Registering Device");
 	self.callbackId = command.callbackId;
 
     NSMutableDictionary* options = [command.arguments objectAtIndex:0];
@@ -143,6 +144,7 @@
 */
 
 - (void)didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    NSLog(@"PushPlugin: didRegisterForRemoteNotificationsWithDeviceToken");
 
     NSMutableDictionary *results = [NSMutableDictionary dictionary];
     NSString *token = [[[[deviceToken description] stringByReplacingOccurrencesOfString:@"<"withString:@""]
@@ -193,6 +195,7 @@
 
 - (void)didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
 {
+    NSLog(@"PushPlugin: didFailToRegisterForRemoteNotificationsWithError");
 	[self failWithMessage:@"" withError:error];
 }
 
@@ -271,6 +274,7 @@
 
 -(void)failWithMessage:(NSString *)message withError:(NSError *)error
 {
+    NSLog(@"PushPlugin: failWithMessage");
     NSString        *errorMessage = (error) ? [NSString stringWithFormat:@"%@ - %@", message, [error localizedDescription]] : message;
     CDVPluginResult *commandResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:errorMessage];
 
