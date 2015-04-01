@@ -265,6 +265,7 @@
 }
 -(void)successWithMessage:(NSString *)message
 {
+    NSLog(@"PushPlugin: successWithMessage");
     if (self.callbackId != nil)
     {
         CDVPluginResult *commandResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:message];
